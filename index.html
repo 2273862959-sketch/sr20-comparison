@@ -1,0 +1,205 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>五样本 · 四档输入 · 固定20倍超分对比</title><style>*{box-sizing:border-box}body{margin:0;background:#0b111b;color:#e6edf5;font:16px/1.65 "Microsoft YaHei",sans-serif}main{max-width:1180px;margin:auto;padding:32px 22px}h1{font-size:32px;line-height:1.3}h2{margin-top:38px}h3{font-size:20px;margin:0}a{color:#81d4ff;text-decoration:none}a:hover{text-decoration:underline}p{color:#b6c4d5}header,article,.intro{background:#131e2d;border:1px solid #27374c;border-radius:16px;padding:24px;margin-bottom:22px}.tag{color:#71e7bf;font-size:14px;letter-spacing:2px}.nav{position:sticky;top:0;background:#0b111bf5;padding:14px 0;z-index:5;display:flex;gap:12px;flex-wrap:wrap}.nav a,.download{border:1px solid #33546e;border-radius:8px;padding:8px 18px}.cardhead{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.cardhead span{color:#71e7bf}.twoup{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}figure{margin:0;background:#070d15;padding:10px;border-radius:8px;text-align:center}figure img{width:100%;height:310px;object-fit:contain}.pixel{image-rendering:pixelated}figcaption{color:#b6c4d5;font-size:14px}.slider{position:relative;max-width:512px;aspect-ratio:1;margin:18px auto;overflow:hidden;touch-action:none}.slider img{position:absolute;inset:0;width:100%;height:100%}.slider .over{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}.slider i{position:absolute;left:var(--pos);height:100%;border-left:2px solid #71e7bf;pointer-events:none}.slider input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}.links{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0}.metric{font-size:14px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;border-bottom:1px solid #2c3b4e;padding:10px}summary{cursor:pointer;color:#81d4ff}small{color:#9dadbf}footer{margin:40px 0;color:#9dadbf}section{scroll-margin-top:80px}@media(max-width:650px){main{padding:16px}.twoup{grid-template-columns:1fr}header,article,.intro{padding:16px}h1{font-size:26px}table{font-size:12px}th,td{padding:5px}}.threeup{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.threeup img{height:240px}@media(max-width:650px){.threeup{grid-template-columns:1fr}}</style><link rel="icon" href="data:,"></head><body><main>
+<header><div class="tag">CYCLIC SR · FIXED 20× · TEST SET</div><h1>同一组 5 张样本，四档输入全部放大 20 倍</h1><p>这里展示 20 组超分前后对比。使用第 9,000 步最佳权重，在 H100 上以 float32 整幅推理，没有预先缩小输入或分块。原图只作为参照。</p><p>整图预览统一适配屏幕；原生细节用于观察放大后的像素、边缘与纹理。每档均固定取中心 512×512 输出像素，同一行位置相同，各档的视野范围不同。</p></header>
+<nav class="nav"><a href="#S01">S01</a><a href="#S02">S02</a><a href="#S03">S03</a><a href="#S04">S04</a><a href="#S05">S05</a></nav>
+<div class="intro"><h3>5 张样本的平均保真度</h3><p>将输出缩回原图尺寸后计算 RGB PSNR / SSIM，裁去原图边缘 20 像素。它衡量原图尺度的保真度，不证明新增高分辨率细节是真实的。原图插值参照不作为更高分辨率真值。</p><table><thead><tr><th>输入档位</th><th>模型倍率</th><th>SR PSNR</th><th>双三次 PSNR</th><th>SR SSIM</th><th>双三次 SSIM</th></tr></thead><tbody><tr><td>降采样 2 倍</td><td>20×</td><td>33.283</td><td>30.789</td><td>0.9182</td><td>0.8680</td></tr><tr><td>降采样 4 倍</td><td>20×</td><td>27.807</td><td>27.009</td><td>0.7429</td><td>0.7015</td></tr><tr><td>降采样 10 倍</td><td>20×</td><td>24.898</td><td>24.429</td><td>0.5940</td><td>0.5755</td></tr><tr><td>降采样 20 倍</td><td>20×</td><td>23.346</td><td>22.937</td><td>0.5506</td><td>0.5434</td></tr></tbody></table></div>
+<section id="S01" class="sample"><h2>样本 S01</h2><div class="links"><a href="gallery_assets/S01_original.png">原图参照预览</a><a href="对比图/S01_整幅对比.png">整幅拼图</a><a href="对比图/S01_同视野局部对比.png">同视野局部拼图</a><a href="对比图/S01_局部对比.png">原生像素局部拼图</a></div><article>
+<div class="cardhead"><h3>降采样 2 倍输入 → 固定 20 倍超分</h3><span>768×512 → 15360×10240</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x2/S01.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x2/S01_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S01_x2_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x2_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x2_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x2/S01_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x2/S01_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x2/S01_before_nearest.png">低分辨率像素</a><a href="outputs/x2/S01_before_bicubic.png">双三次细节</a><a href="outputs/x2/S01_detail.png">超分细节</a><a href="outputs/x2/S01_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：31.578 dB（双三次 29.068）；SSIM：0.9132（双三次 0.8544）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 4 倍输入 → 固定 20 倍超分</h3><span>384×256 → 7680×5120</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x4/S01.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x4/S01_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S01_x4_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x4_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x4_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x4/S01_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x4/S01_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x4/S01_before_nearest.png">低分辨率像素</a><a href="outputs/x4/S01_before_bicubic.png">双三次细节</a><a href="outputs/x4/S01_detail.png">超分细节</a><a href="outputs/x4/S01_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：26.105 dB（双三次 25.357）；SSIM：0.7243（双三次 0.6789）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 10 倍输入 → 固定 20 倍超分</h3><span>153×102 → 3060×2040</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x10/S01.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x10/S01_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S01_x10_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x10_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x10_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x10/S01_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x10/S01_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x10/S01_before_nearest.png">低分辨率像素</a><a href="outputs/x10/S01_before_bicubic.png">双三次细节</a><a href="outputs/x10/S01_detail.png">超分细节</a><a href="outputs/x10/S01_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：23.081 dB（双三次 22.743）；SSIM：0.5604（双三次 0.5442）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 20 倍输入 → 固定 20 倍超分</h3><span>76×51 → 1520×1020</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x20/S01.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x20/S01_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S01_x20_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x20_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S01_x20_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x20/S01_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x20/S01_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x20/S01_before_nearest.png">低分辨率像素</a><a href="outputs/x20/S01_before_bicubic.png">双三次细节</a><a href="outputs/x20/S01_detail.png">超分细节</a><a href="outputs/x20/S01_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：21.690 dB（双三次 21.426）；SSIM：0.5154（双三次 0.5103）</p>
+
+</article></section><section id="S02" class="sample"><h2>样本 S02</h2><div class="links"><a href="gallery_assets/S02_original.png">原图参照预览</a><a href="对比图/S02_整幅对比.png">整幅拼图</a><a href="对比图/S02_同视野局部对比.png">同视野局部拼图</a><a href="对比图/S02_局部对比.png">原生像素局部拼图</a></div><article>
+<div class="cardhead"><h3>降采样 2 倍输入 → 固定 20 倍超分</h3><span>511×768 → 10220×15360</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x2/S02.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x2/S02_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S02_x2_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x2_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x2_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x2/S02_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x2/S02_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x2/S02_before_nearest.png">低分辨率像素</a><a href="outputs/x2/S02_before_bicubic.png">双三次细节</a><a href="outputs/x2/S02_detail.png">超分细节</a><a href="outputs/x2/S02_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：34.905 dB（双三次 31.827）；SSIM：0.9553（双三次 0.9127）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 4 倍输入 → 固定 20 倍超分</h3><span>255×384 → 5100×7680</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x4/S02.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x4/S02_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S02_x4_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x4_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x4_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x4/S02_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x4/S02_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x4/S02_before_nearest.png">低分辨率像素</a><a href="outputs/x4/S02_before_bicubic.png">双三次细节</a><a href="outputs/x4/S02_detail.png">超分细节</a><a href="outputs/x4/S02_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：27.847 dB（双三次 26.914）；SSIM：0.7742（双三次 0.7243）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 10 倍输入 → 固定 20 倍超分</h3><span>102×153 → 2040×3060</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x10/S02.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x10/S02_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S02_x10_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x10_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x10_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x10/S02_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x10/S02_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x10/S02_before_nearest.png">低分辨率像素</a><a href="outputs/x10/S02_before_bicubic.png">双三次细节</a><a href="outputs/x10/S02_detail.png">超分细节</a><a href="outputs/x10/S02_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：24.386 dB（双三次 23.841）；SSIM：0.5798（双三次 0.5551）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 20 倍输入 → 固定 20 倍超分</h3><span>51×76 → 1020×1520</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x20/S02.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x20/S02_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S02_x20_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x20_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S02_x20_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x20/S02_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x20/S02_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x20/S02_before_nearest.png">低分辨率像素</a><a href="outputs/x20/S02_before_bicubic.png">双三次细节</a><a href="outputs/x20/S02_detail.png">超分细节</a><a href="outputs/x20/S02_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：22.746 dB（双三次 22.304）；SSIM：0.5247（双三次 0.5149）</p>
+
+</article></section><section id="S03" class="sample"><h2>样本 S03</h2><div class="links"><a href="gallery_assets/S03_original.png">原图参照预览</a><a href="对比图/S03_整幅对比.png">整幅拼图</a><a href="对比图/S03_同视野局部对比.png">同视野局部拼图</a><a href="对比图/S03_局部对比.png">原生像素局部拼图</a></div><article>
+<div class="cardhead"><h3>降采样 2 倍输入 → 固定 20 倍超分</h3><span>768×512 → 15360×10240</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x2/S03.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x2/S03_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S03_x2_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x2_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x2_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x2/S03_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x2/S03_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x2/S03_before_nearest.png">低分辨率像素</a><a href="outputs/x2/S03_before_bicubic.png">双三次细节</a><a href="outputs/x2/S03_detail.png">超分细节</a><a href="outputs/x2/S03_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：33.411 dB（双三次 31.389）；SSIM：0.8870（双三次 0.8379）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 4 倍输入 → 固定 20 倍超分</h3><span>384×256 → 7680×5120</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x4/S03.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x4/S03_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S03_x4_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x4_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x4_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x4/S03_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x4/S03_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x4/S03_before_nearest.png">低分辨率像素</a><a href="outputs/x4/S03_before_bicubic.png">双三次细节</a><a href="outputs/x4/S03_detail.png">超分细节</a><a href="outputs/x4/S03_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：28.539 dB（双三次 27.855）；SSIM：0.7152（双三次 0.6790）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 10 倍输入 → 固定 20 倍超分</h3><span>153×102 → 3060×2040</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x10/S03.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x10/S03_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S03_x10_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x10_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x10_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x10/S03_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x10/S03_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x10/S03_before_nearest.png">低分辨率像素</a><a href="outputs/x10/S03_before_bicubic.png">双三次细节</a><a href="outputs/x10/S03_detail.png">超分细节</a><a href="outputs/x10/S03_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：25.804 dB（双三次 25.341）；SSIM：0.5917（双三次 0.5745）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 20 倍输入 → 固定 20 倍超分</h3><span>76×51 → 1520×1020</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x20/S03.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x20/S03_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S03_x20_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x20_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S03_x20_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x20/S03_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x20/S03_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x20/S03_before_nearest.png">低分辨率像素</a><a href="outputs/x20/S03_before_bicubic.png">双三次细节</a><a href="outputs/x20/S03_detail.png">超分细节</a><a href="outputs/x20/S03_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：24.223 dB（双三次 23.754）；SSIM：0.5546（双三次 0.5475）</p>
+
+</article></section><section id="S04" class="sample"><h2>样本 S04</h2><div class="links"><a href="gallery_assets/S04_original.png">原图参照预览</a><a href="对比图/S04_整幅对比.png">整幅拼图</a><a href="对比图/S04_同视野局部对比.png">同视野局部拼图</a><a href="对比图/S04_局部对比.png">原生像素局部拼图</a></div><article>
+<div class="cardhead"><h3>降采样 2 倍输入 → 固定 20 倍超分</h3><span>768×512 → 15360×10240</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x2/S04.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x2/S04_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S04_x2_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x2_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x2_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x2/S04_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x2/S04_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x2/S04_before_nearest.png">低分辨率像素</a><a href="outputs/x2/S04_before_bicubic.png">双三次细节</a><a href="outputs/x2/S04_detail.png">超分细节</a><a href="outputs/x2/S04_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：35.457 dB（双三次 32.541）；SSIM：0.9455（双三次 0.9014）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 4 倍输入 → 固定 20 倍超分</h3><span>384×256 → 7680×5120</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x4/S04.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x4/S04_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S04_x4_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x4_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x4_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x4/S04_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x4/S04_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x4/S04_before_nearest.png">低分辨率像素</a><a href="outputs/x4/S04_before_bicubic.png">双三次细节</a><a href="outputs/x4/S04_detail.png">超分细节</a><a href="outputs/x4/S04_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：29.706 dB（双三次 28.788）；SSIM：0.7935（双三次 0.7540）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 10 倍输入 → 固定 20 倍超分</h3><span>153×102 → 3060×2040</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x10/S04.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x10/S04_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S04_x10_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x10_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x10_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x10/S04_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x10/S04_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x10/S04_before_nearest.png">低分辨率像素</a><a href="outputs/x10/S04_before_bicubic.png">双三次细节</a><a href="outputs/x10/S04_detail.png">超分细节</a><a href="outputs/x10/S04_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：26.684 dB（双三次 26.176）；SSIM：0.6534（双三次 0.6357）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 20 倍输入 → 固定 20 倍超分</h3><span>76×51 → 1520×1020</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x20/S04.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x20/S04_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S04_x20_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x20_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S04_x20_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x20/S04_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x20/S04_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x20/S04_before_nearest.png">低分辨率像素</a><a href="outputs/x20/S04_before_bicubic.png">双三次细节</a><a href="outputs/x20/S04_detail.png">超分细节</a><a href="outputs/x20/S04_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：25.144 dB（双三次 24.666）；SSIM：0.6124（双三次 0.6054）</p>
+
+</article></section><section id="S05" class="sample"><h2>样本 S05</h2><div class="links"><a href="gallery_assets/S05_original.png">原图参照预览</a><a href="对比图/S05_整幅对比.png">整幅拼图</a><a href="对比图/S05_同视野局部对比.png">同视野局部拼图</a><a href="对比图/S05_局部对比.png">原生像素局部拼图</a></div><article>
+<div class="cardhead"><h3>降采样 2 倍输入 → 固定 20 倍超分</h3><span>512×768 → 10240×15360</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x2/S05.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x2/S05_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S05_x2_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x2_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x2_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x2/S05_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x2/S05_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x2/S05_before_nearest.png">低分辨率像素</a><a href="outputs/x2/S05_before_bicubic.png">双三次细节</a><a href="outputs/x2/S05_detail.png">超分细节</a><a href="outputs/x2/S05_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：31.063 dB（双三次 29.118）；SSIM：0.8900（双三次 0.8338）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 4 倍输入 → 固定 20 倍超分</h3><span>256×384 → 5120×7680</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x4/S05.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x4/S05_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S05_x4_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x4_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x4_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x4/S05_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x4/S05_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x4/S05_before_nearest.png">低分辨率像素</a><a href="outputs/x4/S05_before_bicubic.png">双三次细节</a><a href="outputs/x4/S05_detail.png">超分细节</a><a href="outputs/x4/S05_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：26.837 dB（双三次 26.128）；SSIM：0.7074（双三次 0.6711）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 10 倍输入 → 固定 20 倍超分</h3><span>102×153 → 2040×3060</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x10/S05.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x10/S05_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S05_x10_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x10_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x10_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x10/S05_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x10/S05_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x10/S05_before_nearest.png">低分辨率像素</a><a href="outputs/x10/S05_before_bicubic.png">双三次细节</a><a href="outputs/x10/S05_detail.png">超分细节</a><a href="outputs/x10/S05_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：24.533 dB（双三次 24.046）；SSIM：0.5849（双三次 0.5680）</p>
+
+</article><article>
+<div class="cardhead"><h3>降采样 20 倍输入 → 固定 20 倍超分</h3><span>51×76 → 1020×1520</span></div>
+<div class="twoup"><figure><img loading="lazy" class="pixel" src="inputs/x20/S05.png"><figcaption>超分前 · 低分辨率输入（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="outputs/x20/S05_preview.png"><figcaption>超分后 · 整图预览（缩小显示）</figcaption></figure></div>
+<details><summary>各档一致的中心视野 · 宽、高各取 30%</summary><div class="threeup"><figure><img loading="lazy" src="gallery_assets/S05_x20_common0.png"><figcaption>原图参照</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x20_common1.png"><figcaption>超分前（最近邻显示）</figcaption></figure><figure><img loading="lazy" src="gallery_assets/S05_x20_common2.png"><figcaption>20倍超分（缩放显示）</figcaption></figure></div></details>
+<details open><summary>原生输出中心细节 · 512×512 像素</summary>
+<p>拖动滑块：左侧为超分结果，右侧为双三次放大。此处缩小浏览，点击下方链接可打开 1:1 像素图。</p>
+<div class="slider" style="--pos:50%"><img loading="lazy" src="outputs/x20/S05_before_bicubic.png" alt="双三次放大"><img loading="lazy" class="over" src="outputs/x20/S05_detail.png" alt="20倍超分"><i></i><input type="range" value="50" min="0" max="100" aria-label="超分与双三次对比" oninput="this.parentNode.style.setProperty('--pos',this.value+'%')"></div>
+<div class="links"><a href="outputs/x20/S05_before_nearest.png">低分辨率像素</a><a href="outputs/x20/S05_before_bicubic.png">双三次细节</a><a href="outputs/x20/S05_detail.png">超分细节</a><a href="outputs/x20/S05_reference.png">原图插值参照</a></div></details>
+<p class="metric">投影回原图后的 PSNR：22.929 dB（双三次 22.533）；SSIM：0.5459（双三次 0.5391）</p>
+
+</article></section><footer>预先固定测试样本；没有依据超分效果筛选。本页提供预览与局部对比；完整超大输出保存在实验本地。</footer></main></body></html>
