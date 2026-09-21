@@ -1,0 +1,32 @@
+{
+  "complete": true,
+  "expected": 32000,
+  "completed": 32000,
+  "label_counts": {
+    "0": 24000,
+    "1": 8000
+  },
+  "input_size": [
+    20,
+    20
+  ],
+  "output_size": [
+    400,
+    400
+  ],
+  "scale": 20,
+  "mode": "x8",
+  "pre_downsample": false,
+  "all_output_sha256_and_png_crc_verified": true,
+  "saved_bytes": 3344189440,
+  "manifest_sha256": "8d6d37703ac4416a8d7dbfdecddfe0ff70163bd9769b5f2a98db54671cbe23e0",
+  "checkpoint_sha256": "c8bc112cf5674327daaa3d6363dff761a2d2ba1c11dcba5ef2b3260feca02e73",
+  "display_indices": [
+    24900,
+    27300,
+    27700,
+    28200,
+    30600
+  ],
+  "reference_metrics": "No paired high-resolution ground truth; no PSNR or SSIM quality claims."
+}
