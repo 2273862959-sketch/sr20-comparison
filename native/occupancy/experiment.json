@@ -1,0 +1,510 @@
+{
+  "count": 15,
+  "crop_inferences": 12,
+  "complete": true,
+  "scale": 20,
+  "mode": "x8",
+  "target": [
+    0.87723704866562,
+    0.8316326530612245
+  ],
+  "device": "cpu",
+  "checkpoint_sha256": "c8bc112cf5674327daaa3d6363dff761a2d2ba1c11dcba5ef2b3260feca02e73",
+  "records": [
+    {
+      "dataset": "resisc45",
+      "id": "airplane_001",
+      "bbox": [
+        46,
+        74,
+        136,
+        154
+      ],
+      "crop": [
+        40,
+        66,
+        143,
+        163
+      ],
+      "before_fraction": [
+        0.3515625,
+        0.3125
+      ],
+      "after_fraction": [
+        0.8737864077669902,
+        0.8247422680412371
+      ],
+      "input_size": [
+        256,
+        256
+      ],
+      "output_size": [
+        2060,
+        1940
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_108",
+      "bbox": [
+        110,
+        68,
+        188,
+        135
+      ],
+      "crop": [
+        104,
+        61,
+        193,
+        142
+      ],
+      "before_fraction": [
+        0.3046875,
+        0.26171875
+      ],
+      "after_fraction": [
+        0.8764044943820225,
+        0.8271604938271605
+      ],
+      "input_size": [
+        256,
+        256
+      ],
+      "output_size": [
+        1780,
+        1620
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_172",
+      "bbox": [
+        92,
+        19,
+        213,
+        113
+      ],
+      "crop": [
+        84,
+        9,
+        222,
+        123
+      ],
+      "before_fraction": [
+        0.47265625,
+        0.3671875
+      ],
+      "after_fraction": [
+        0.8768115942028986,
+        0.8245614035087719
+      ],
+      "input_size": [
+        256,
+        256
+      ],
+      "output_size": [
+        2760,
+        2280
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_433",
+      "bbox": [
+        12,
+        81,
+        99,
+        169
+      ],
+      "crop": [
+        6,
+        72,
+        106,
+        178
+      ],
+      "before_fraction": [
+        0.33984375,
+        0.34375
+      ],
+      "after_fraction": [
+        0.87,
+        0.8301886792452831
+      ],
+      "input_size": [
+        256,
+        256
+      ],
+      "output_size": [
+        2000,
+        2120
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "resisc45",
+      "id": "airplane_648",
+      "bbox": [
+        95,
+        82,
+        163,
+        148
+      ],
+      "crop": [
+        90,
+        75,
+        168,
+        155
+      ],
+      "before_fraction": [
+        0.265625,
+        0.2578125
+      ],
+      "after_fraction": [
+        0.8717948717948718,
+        0.825
+      ],
+      "input_size": [
+        256,
+        256
+      ],
+      "output_size": [
+        1560,
+        1600
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "105_104001003108D900_tile_51",
+      "bbox": [
+        358,
+        292,
+        425,
+        316
+      ],
+      "crop": [
+        353,
+        290,
+        430,
+        319
+      ],
+      "before_fraction": [
+        0.130859375,
+        0.046875
+      ],
+      "after_fraction": [
+        0.8701298701298701,
+        0.8275862068965517
+      ],
+      "input_size": [
+        512,
+        512
+      ],
+      "output_size": [
+        1540,
+        580
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "124_104001001F2A5700_tile_212",
+      "bbox": [
+        212,
+        155,
+        280,
+        212
+      ],
+      "crop": [
+        207,
+        149,
+        285,
+        218
+      ],
+      "before_fraction": [
+        0.1328125,
+        0.111328125
+      ],
+      "after_fraction": [
+        0.8717948717948718,
+        0.8260869565217391
+      ],
+      "input_size": [
+        512,
+        512
+      ],
+      "output_size": [
+        1560,
+        1380
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "31_10400100443CFD00_tile_608",
+      "bbox": [
+        218,
+        294,
+        364,
+        444
+      ],
+      "crop": [
+        208,
+        278,
+        375,
+        459
+      ],
+      "before_fraction": [
+        0.28515625,
+        0.29296875
+      ],
+      "after_fraction": [
+        0.874251497005988,
+        0.8287292817679558
+      ],
+      "input_size": [
+        512,
+        512
+      ],
+      "output_size": [
+        3340,
+        3620
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "55_1040010049CD5600_tile_577",
+      "bbox": [
+        268,
+        55,
+        419,
+        187
+      ],
+      "crop": [
+        257,
+        42,
+        430,
+        201
+      ],
+      "before_fraction": [
+        0.294921875,
+        0.2578125
+      ],
+      "after_fraction": [
+        0.8728323699421965,
+        0.8301886792452831
+      ],
+      "input_size": [
+        512,
+        512
+      ],
+      "output_size": [
+        3460,
+        3180
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "rareplanes-real",
+      "id": "126_104001000C4AEE00_tile_1687",
+      "bbox": [
+        131,
+        287,
+        350,
+        477
+      ],
+      "crop": [
+        116,
+        268,
+        366,
+        497
+      ],
+      "before_fraction": [
+        0.427734375,
+        0.37109375
+      ],
+      "after_fraction": [
+        0.876,
+        0.8296943231441049
+      ],
+      "input_size": [
+        512,
+        512
+      ],
+      "output_size": [
+        5000,
+        4580
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "planesnet",
+      "id": "24900",
+      "bbox": [
+        3,
+        4,
+        18,
+        17
+      ],
+      "crop": [
+        2,
+        2,
+        20,
+        18
+      ],
+      "before_fraction": [
+        0.75,
+        0.65
+      ],
+      "after_fraction": [
+        0.8333333333333334,
+        0.8125
+      ],
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        360,
+        320
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "planesnet",
+      "id": "27300",
+      "bbox": [
+        3,
+        1,
+        16,
+        19
+      ],
+      "crop": [
+        0,
+        0,
+        20,
+        20
+      ],
+      "before_fraction": [
+        0.65,
+        0.9
+      ],
+      "after_fraction": [
+        0.65,
+        0.9
+      ],
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "is_noop": true
+    },
+    {
+      "dataset": "planesnet",
+      "id": "27700",
+      "bbox": [
+        1,
+        0,
+        19,
+        19
+      ],
+      "crop": [
+        0,
+        0,
+        20,
+        20
+      ],
+      "before_fraction": [
+        0.9,
+        0.95
+      ],
+      "after_fraction": [
+        0.9,
+        0.95
+      ],
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "is_noop": true
+    },
+    {
+      "dataset": "planesnet",
+      "id": "28200",
+      "bbox": [
+        4,
+        4,
+        17,
+        17
+      ],
+      "crop": [
+        3,
+        2,
+        18,
+        18
+      ],
+      "before_fraction": [
+        0.65,
+        0.65
+      ],
+      "after_fraction": [
+        0.8666666666666667,
+        0.8125
+      ],
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        300,
+        320
+      ],
+      "is_noop": false
+    },
+    {
+      "dataset": "planesnet",
+      "id": "30600",
+      "bbox": [
+        0,
+        1,
+        19,
+        19
+      ],
+      "crop": [
+        0,
+        0,
+        20,
+        20
+      ],
+      "before_fraction": [
+        0.95,
+        0.9
+      ],
+      "after_fraction": [
+        0.95,
+        0.9
+      ],
+      "input_size": [
+        20,
+        20
+      ],
+      "output_size": [
+        400,
+        400
+      ],
+      "is_noop": true
+    }
+  ]
+}
